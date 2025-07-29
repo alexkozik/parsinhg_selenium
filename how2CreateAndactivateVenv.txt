@@ -1,0 +1,31 @@
+2. Установить в виртуальное окружение (лучший вариант для разработки)
+bash
+
+# Создать виртуальное окружение
+python3 -m venv myenv
+
+# Активировать его
+source myenv/bin/activate
+
+# Теперь pip будет устанавливать пакеты локально
+pip install beautifulsoup4
+
+Если вы установили beautifulsoup4 в виртуальное окружение, но PyCharm его не видит, значит, PyCharm использует не то окружение Python. Вот как это исправить:
+1. Убедитесь, что виртуальное окружение активировано в PyCharm
+
+    Откройте PyCharm.
+
+    Перейдите в:
+    File → Settings → Project: <ваш_проект> → Python Interpreter
+    (или просто нажмите Ctrl+Alt+S и найдите "Python Interpreter").
+
+    В выпадающем списке интерпретаторов выберите ваш виртуальный (myenv).
+    Если его нет в списке:
+
+        Нажмите ⚙️ → Add Interpreter → Add Local Interpreter.
+
+        Выберите Virtualenv Environment → Existing environment.
+
+        Укажите путь к Python из вашего окружения (например, ~/myenv/bin/python).
+
+    Нажмите OK и дождитесь, пока PyCharm проиндексирует пакеты.
