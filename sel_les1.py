@@ -14,10 +14,16 @@ options.add_argument("--headless")  # Запуск в фоновом режим�
 
 #Если мы работаем с Firefox
 browser = webdriver.Firefox(service=service, options=options)
+
 browser.get("https://en.wikipedia.org/wiki/Document_Object_Model")
-#В кавычках указываем URL сайта, на который нам нужно зайти
+browser.save_screenshot("dom.png")
 print("Страница загружена:", browser.title)
-time.sleep(10)
-#Задержка в 10 секунд
+time.sleep(5)
+browser.get("https://ru.wikipedia.org/wiki/Selenium")
+browser.save_screenshot("selenium.png")
+print("Страница загружена:", browser.title)
+time.sleep(3)
+browser.refresh()
+
 browser.quit()
 #Закрываем браузер
